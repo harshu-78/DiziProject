@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utico - Future of Utilities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .fade-up { animation: fadeUp 1s ease-out forwards; }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      .float { animation: float 3s ease-in-out infinite; }
+  
+      
+   
+
+    .swiper-container {
+      width: 100%;
+      height: 400px; 
+      overflow: visible;
+    }
+
+  .swiper-slide { width: 700px; height: 350px;  border-radius: 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; box-sizing: border-box; transition: all 0.5s ease;  transform-origin: center; position: relative; }
+  
+  .swiper-slide img {
+  width: 100%;              
+  height: 50%;              
+  object-fit: cover;       
+  border-radius: 15px 15px 0 0; 
+  margin-bottom: 15px;
+}
+
+    
+    .swiper-slide-active .card-content {
+      position: relative;
+      background: linear-gradient(135deg, #8A2BE2, #00BFFF); 
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 5px; 
+      display: inline-block;
+    }
+
+    .swiper-slide-active .card-content::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #8A2BE2, #00BFFF);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.4s ease-out;
+    }
+    
+    .swiper-slide-active .card-content:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+
+    .swiper-slide:not(.swiper-slide-active) {
+      opacity: 0.8;
+      transform: scale(0.8); 
+    }
+
+    .swiper-slide-prev,
+    .swiper-slide-next {
+      filter: grayscale(10%); 
+    }
+
+    /* Navigation buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #6366f1; 
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      transform: scale(1.05);
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 26px !important;
+      font-weight: bold;
+    }
+
+    /* Pagination dots */
+    .swiper-pagination-bullet {
+      background: #cbd5e1; 
+      opacity: 1;
+      transition: background 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #6366f1; 
+    }
+
+    /* Specific style*/
+    .card-title {
+      font-size: 2.5rem; 
+      font-weight: 800;
+      letter-spacing: -0.05em; 
+      line-height: 1.1;
+    }
+    .card-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+    .card-description {
+      font-size: 1rem;
+      color: #334155; 
+      margin-top: 15px;
+      line-height: 1.6;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tag {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 9999px; 
+      padding: 6px 14px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #4a5568; 
+      margin: 0 5px;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .tag:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+    .tags-container {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .explore-button {
+        background: linear-gradient(45deg, #00BFFF, #8A2BE2); 
+        color: white;
+        padding: 15px 30px;
+        border-radius: 9999px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-top: 30px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative; 
+        overflow: hidden;
+    }
+    .explore-button:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    }
+    .explore-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .explore-button:hover::before {
+        opacity: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .swiper-slide {
+      width: 90%;
+      height: auto;
+      padding: 20px;
+    }
+    .swiper-slide img {
+      height: 60px !important; 
+    }
+      .card-title {
+        font-size: 1.8rem;
+      }
+      .card-subtitle {
+        font-size: 1rem;
+      }
+      .card-description {
+        font-size: 0.9rem;
+      }
+      .explore-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+    }
+
+
+    </style>
+  </head>
+ <body class="font-sans bg-gradient-to-b from-yellow-200 via-cyan-200 to-green-300 ">
+
+
+
+  <!-- Navbar -->
+<nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg shadow-md z-50">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    
+    <!-- Left logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="images/Utico-Logo.jpg" alt="Noble Development Logo" class="h-12 w-auto object-contain">
+    </a>
+
+    <!-- Center Menu -->
+    <ul class="hidden md:flex space-x-8 font-medium text-gray-700 mx-auto">
+      <li class="relative group cursor-pointer">Home
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all"></span>
+      </li>
+
+      <!-- About with Dropdown -->
+      <li class="relative group cursor-pointer">
+        <button onclick="toggleDropdown('aboutDropdown')" class="flex items-center gap-1">
+          About Us
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <!-- Dropdown -->
+        <ul id="aboutDropdown"
+            class="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden">
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Corporate Policy</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Investments</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">CSR</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">QHSE</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">ISO Certification</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Awards</li>
+        </ul>
+      </li>
+
+      <!-- Services with Dropdown -->
+      <li class="relative group cursor-pointer">
+        <button onclick="toggleDropdown('servicesDropdown')" class="flex items-center gap-1">
+          Services
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" 
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" 
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul id="servicesDropdown" class="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden">
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Total Water Solutions</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Water Recycling</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Water Purification</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Industrial Water Treatment</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Zero Liquid Discharge</li>
+        </ul>
+      </li>
+
+      <!-- Project with Dropdown -->
+      <li class="relative group cursor-pointer">
+        <button onclick="toggleDropdown('projectDropdown')" class="flex items-center gap-1">
+          Project
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" 
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" 
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul id="projectDropdown" class="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden">
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Achievements</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Projects Completed</li>
+        </ul>
+      </li>
+
+      <!-- Partner with Dropdown -->
+      <li class="relative group cursor-pointer">
+        <button onclick="toggleDropdown('partnerDropdown')" class="flex items-center gap-1">
+          Partner
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" 
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" 
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul id="partnerDropdown" class="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden">
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Valued Partners</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Clients</li>
+          <li class="px-4 py-2 hover:bg-green-100 cursor-pointer">Consultants</li>
+        </ul>
+      </li>
+
+      <li class="relative group cursor-pointer">Contact
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all"></span>
+      </li>
+    </ul>
+
+    <!-- Right Button -->
+    <button class="hidden md:block px-5 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full shadow-lg hover:scale-105 transition">
+      Get Quote
+    </button>
+    <button class="md:hidden text-2xl">☰</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative h-[75vh] w-full mt-24  flex items-center justify-center">
+  <!-- Banner Image -->
+  <img src="images/Utico.jpg" 
+       alt="Hero Banner" 
+       class="w-full h-full object-contain" />
+</section>
+
+
+
+ 
+
+
+<!-- Highlights Section -->
+<section class="relative py-20  overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+    
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
+      Our Core Highlights
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-14">
+      Driving innovation, sustainability, and progress through bold ideas and future-ready solutions.
+    </p>
+
+    <!-- Cards -->
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div class="h-36 w-full overflow-hidden">
+          <img src="images/HC2.jpeg" alt="Innovation"
+               class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold mb-3 text-gray-900">Innovation in Utilities</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Smarter, faster, and future-ready utility solutions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div class="h-36 w-full overflow-hidden">
+          <img src="images/HC1.jpeg" alt="Sustainability"
+               class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold mb-3 text-gray-900">Sustainability at Core</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Growth that protects the planet and future generations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div class="h-36 w-full overflow-hidden">
+          <img src="images/HC3.jpeg" alt="Venture Capital"
+               class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold mb-3 text-gray-900">Venture Capital for Progress</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Funding and support for startups and bold ventures.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div class="h-36 w-full overflow-hidden">
+          <img src="images/HC4.jpeg" alt="Energy"
+               class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold mb-3 text-gray-900">Future-Ready Energy</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Clean energy and next-gen systems for tomorrow.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- About Us Section -->
+<section class="relative py-24 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    
+    <!-- Heading -->
+    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 relative inline-block">
+      About <span class="text-cyan-600">Noble</span> Development
+      <!-- Underline Accent -->
+      <span class="absolute left-1/2 -bottom-2 w-24 h-1 bg-cyan-500 rounded-full transform -translate-x-1/2 animate-pulse"></span>
+    </h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12 animate-fadeInUp">
+      Building a future where <span class="text-cyan-600 font-medium">innovation</span>, 
+      <span class="text-green-600 font-medium">sustainability</span>, 
+      and <span class="text-yellow-600 font-medium">impact</span> drive real progress for the UAE and beyond.
+    </p>
+
+    <!-- Center Image -->
+    <div class="relative mb-16 flex justify-center animate-fadeInUp delay-200">
+      <img src="img1.webp" alt="Noble Development"
+        class="w-80 h-80 object-cover rounded-full shadow-2xl border-8 border-white transform transition duration-500 hover:scale-105">
+      
+      <!-- Floating Badge -->
+      <div class="absolute bottom-6 right-[35%] bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg animate-bounce">
+        <h4 class="text-2xl font-bold">US$130M</h4>
+        <p class="text-sm">Landmark Initiative</p>
+      </div>
+    </div>
+
+    <!-- Two Column Content -->
+    <div class="grid md:grid-cols-2 gap-12 text-left mb-16">
+      <div class="animate-fadeInUp delay-300">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h3>
+        <p class="text-gray-600 leading-relaxed">
+          To redefine utilities in the UAE by investing in bold ideas and clean energy, 
+          while ensuring growth that balances profit with purpose.
+        </p>
+      </div>
+      <div class="animate-fadeInUp delay-500">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Empowering the UAE with next-gen solutions, fostering partnerships, and 
+          proving that business with purpose is the strongest force for change.
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-white rounded-2xl shadow-lg p-8 animate-fadeInUp delay-700">
+      <div class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
+        <h3 class="text-3xl font-bold text-cyan-600 counter" data-target="15">0</h3>
+        <p class="text-gray-600">Years Experience</p>
+      </div>
+      <div class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
+        <h3 class="text-3xl font-bold text-blue-600 counter" data-target="120">0</h3>
+        <p class="text-gray-600">Projects Completed</p>
+      </div>
+      <div class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
+        <h3 class="text-3xl font-bold text-green-600 counter" data-target="80">0</h3>
+        <p class="text-gray-600">Global Clients</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="swiper-container mySwiper">
+    <div class="swiper-wrapper">
+
+   <div class="swiper-slide">
+  <div class="text-center flex flex-col h-full">
+    <img 
+      src="images/Service4.jpeg" 
+      alt="LIGHTSWIND UI" 
+    />
+    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+      <p class="card-description text-gray-600 mt-2">
+         Smarter, faster, and future-ready utility solutions powered by bold ideas & technology.
+      </p>
+      <button class="explore-button mt-4">
+         Explore Innovation <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+    <div class="swiper-slide">
+  <div class="text-center flex flex-col h-full">
+    <img 
+      src="images/Service1.jpeg" 
+      alt="LIGHTSWIND UI" 
+    />
+    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+      <p class="card-description text-gray-600 mt-2">
+            Every decision balances growth with environmental care — from clean energy to water-saving systems.
+      </p>
+      <button class="explore-button mt-4">
+         Discover Sustainability <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <div class="text-center flex flex-col h-full">
+    <img 
+      src="images/Service2.jpeg" 
+      alt="LIGHTSWIND UI" 
+    />
+    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+      <p class="card-description text-gray-600 mt-2">
+        Fueling startups and ventures in the UAE’s utilities sector with capital and strategic guidance.
+      </p>
+      <button class="explore-button mt-4">
+        Partner With Us <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <div class="text-center flex flex-col h-full">
+    <img 
+      src="images/Service3.jpeg" 
+      alt="LIGHTSWIND UI" 
+    />
+    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+      <p class="card-description text-gray-600 mt-2">
+         Building renewable and next-gen energy projects to power the UAE’s Vision 2030 goals.
+      </p>
+      <button class="explore-button mt-4">
+        See Our Mission<i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+
+
+
+
+<!-- Footer Section -->
+<footer class="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black text-gray-300 pt-16 pb-10 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Top Grid -->
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      
+      <!-- Logo & About -->
+      <div>
+        <h2 class="text-2xl font-extrabold text-white mb-4">Noble Development</h2>
+        <p class="text-gray-400 leading-relaxed text-sm">
+          Pioneering innovation, sustainability, and clean energy ventures to shape the future of UAE’s utilities sector.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-cyan-400 transition">Home</a></li>
+          <li><a href="#" class="hover:text-cyan-400 transition">About Us</a></li>
+          <li><a href="#" class="hover:text-cyan-400 transition">Our Mission</a></li>
+          <li><a href="#" class="hover:text-cyan-400 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Our Focus</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-green-400 transition">Innovation in Utilities</a></li>
+          <li><a href="#" class="hover:text-green-400 transition">Sustainability</a></li>
+          <li><a href="#" class="hover:text-green-400 transition">Venture Capital</a></li>
+          <li><a href="#" class="hover:text-green-400 transition">Future Energy</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Stay Connected</h3>
+        <p class="text-gray-400 text-sm mb-4">Subscribe to our newsletter for updates.</p>
+        <form class="flex items-center">
+          <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-l-xl bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          <button class="px-4 py-2 bg-cyan-600 text-white rounded-r-xl hover:bg-cyan-700 transition">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-700 my-6"></div>
+
+    <!-- Bottom Row -->
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+     
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Font Awesome (for social icons) -->
+<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      coverflowEffect: {
+        rotate: 0, /* No rotation for a flatter stack */
+        stretch: 80, /* Distance between slides */
+        depth: 200, /* Perspective depth */
+        modifier: 1, /* Reduce the "flying away" effect */
+        slideShadows: false, /* Remove default shadows */
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          coverflowEffect: {
+            stretch: 120,
+            depth: 250,
+          },
+        },
+        1024: {
+          slidesPerView: "auto",
+          coverflowEffect: {
+            stretch: 80,
+            depth: 200,
+          },
+        },
+      }
+    });
+
+
+ document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    const animateCounter = (counter) => {
+      const target = +counter.getAttribute("data-target");
+      const speed = 200; // speed factor
+      let count = 0;
+
+      const updateCount = () => {
+        const increment = Math.ceil(target / speed);
+        if (count < target) {
+          count += increment;
+          counter.innerText = count + "+";
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target + "+"; // final number with +
+        }
+      };
+
+      updateCount();
+    };
+
+    // Run animation only when visible
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target); // run once per counter
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  });
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+
