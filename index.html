@@ -9,6 +9,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
       @keyframes fadeUp {
         0% { opacity: 0; transform: translateY(30px); }
@@ -226,7 +228,7 @@
 
     </style>
   </head>
- <body class="font-sans bg-gradient-to-b from-yellow-200 via-cyan-200 to-green-300 ">
+ <body class="font-sans bg-gradient-to-b from-yellow-200 via-cyan-200 to-green-200 ">
 
 
 
@@ -236,7 +238,7 @@
     
     <!-- Left logo -->
     <a href="index.html" class="flex items-center space-x-2">
-      <img src="images/Utico-Logo.jpg" alt="Noble Development Logo" class="h-12 w-auto object-contain">
+      <img src="images/lago.png" alt="Noble Development Logo" class="h-12 w-auto object-contain">
     </a>
 
     <!-- Center Menu -->
@@ -333,27 +335,27 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="relative h-[75vh] w-full mt-24  flex items-center justify-center">
+<section class="relative h-[75vh] w-full mt-20  flex items-center justify-center">
   <!-- Banner Image -->
-  <img src="images/Utico.jpg" 
+  <img src="images/Banner.jpg" 
        alt="Hero Banner" 
-       class="w-full h-full object-contain" />
+       class="w-full h-full object-cover" />
 </section>
 
 
 
  
 
-
 <!-- Highlights Section -->
-<section class="relative py-20  overflow-hidden">
+<section class="relative py-20 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
     
     <!-- Heading -->
-    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
+    <h2 data-aos="fade-up" data-aos-duration="1000" class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
       Our Core Highlights
     </h2>
-    <p class="text-gray-600 max-w-2xl mx-auto mb-14">
+    <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" 
+       class="text-gray-600 max-w-2xl mx-auto mb-14">
       Driving innovation, sustainability, and progress through bold ideas and future-ready solutions.
     </p>
 
@@ -361,7 +363,8 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
       
       <!-- Card 1 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="100"
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
         <div class="h-36 w-full overflow-hidden">
           <img src="images/HC2.jpeg" alt="Innovation"
                class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -375,7 +378,8 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200"
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
         <div class="h-36 w-full overflow-hidden">
           <img src="images/HC1.jpeg" alt="Sustainability"
                class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -389,7 +393,8 @@
       </div>
 
       <!-- Card 3 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="300"
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
         <div class="h-36 w-full overflow-hidden">
           <img src="images/HC3.jpeg" alt="Venture Capital"
                class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -403,7 +408,8 @@
       </div>
 
       <!-- Card 4 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="400"
+           class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
         <div class="h-36 w-full overflow-hidden">
           <img src="images/HC4.jpeg" alt="Energy"
                class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -429,24 +435,26 @@
   <div class="max-w-6xl mx-auto px-6 text-center">
     
     <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 relative inline-block">
+    <h2 data-aos="fade-up" data-aos-duration="1000" class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 relative inline-block">
       About <span class="text-cyan-600">Noble</span> Development
       <!-- Underline Accent -->
       <span class="absolute left-1/2 -bottom-2 w-24 h-1 bg-cyan-500 rounded-full transform -translate-x-1/2 animate-pulse"></span>
     </h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12 animate-fadeInUp">
+    <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
       Building a future where <span class="text-cyan-600 font-medium">innovation</span>, 
       <span class="text-green-600 font-medium">sustainability</span>, 
       and <span class="text-yellow-600 font-medium">impact</span> drive real progress for the UAE and beyond.
     </p>
 
     <!-- Center Image -->
-    <div class="relative mb-16 flex justify-center animate-fadeInUp delay-200">
-      <img src="img1.webp" alt="Noble Development"
+    <div class="relative mb-16 flex justify-center">
+      <img src="images/UTICO.jpg" alt="Noble Development"
+        data-aos="zoom-in" data-aos-duration="1200"
         class="w-80 h-80 object-cover rounded-full shadow-2xl border-8 border-white transform transition duration-500 hover:scale-105">
       
       <!-- Floating Badge -->
-      <div class="absolute bottom-6 right-[35%] bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg animate-bounce">
+      <div data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000"
+        class="absolute bottom-6 right-[35%] bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg">
         <h4 class="text-2xl font-bold">US$130M</h4>
         <p class="text-sm">Landmark Initiative</p>
       </div>
@@ -454,14 +462,14 @@
 
     <!-- Two Column Content -->
     <div class="grid md:grid-cols-2 gap-12 text-left mb-16">
-      <div class="animate-fadeInUp delay-300">
+      <div data-aos="fade-right" data-aos-duration="1000">
         <h3 class="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h3>
         <p class="text-gray-600 leading-relaxed">
           To redefine utilities in the UAE by investing in bold ideas and clean energy, 
           while ensuring growth that balances profit with purpose.
         </p>
       </div>
-      <div class="animate-fadeInUp delay-500">
+      <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
         <h3 class="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
         <p class="text-gray-600 leading-relaxed">
           Empowering the UAE with next-gen solutions, fostering partnerships, and 
@@ -471,16 +479,19 @@
     </div>
 
     <!-- Stats Strip -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-white rounded-2xl shadow-lg p-8 animate-fadeInUp delay-700">
-      <div class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-white rounded-2xl shadow-lg p-8">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200"
+        class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
         <h3 class="text-3xl font-bold text-cyan-600 counter" data-target="15">0</h3>
         <p class="text-gray-600">Years Experience</p>
       </div>
-      <div class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="400"
+        class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
         <h3 class="text-3xl font-bold text-blue-600 counter" data-target="120">0</h3>
         <p class="text-gray-600">Projects Completed</p>
       </div>
-      <div class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="600"
+        class="text-center p-4 rounded-xl transition transform hover:scale-105 hover:shadow-lg">
         <h3 class="text-3xl font-bold text-green-600 counter" data-target="80">0</h3>
         <p class="text-gray-600">Global Clients</p>
       </div>
@@ -491,84 +502,91 @@
 
 
 
-<div class="swiper-container mySwiper">
+<!-- Services Section -->
+<section class="relative py-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+    <!-- Heading -->
+    <h2 data-aos="fade-up" data-aos-duration="1000" class="text-3xl md:text-4xl font-extrabold text-gray-900">
+      Our <span class="text-indigo-600">Services</span>
+    </h2>
+    <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="text-gray-600 mt-3 max-w-2xl mx-auto">
+      Delivering innovation, sustainability, and impact through bold solutions and next-gen utilities.
+    </p>
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper-container mySwiper" data-aos="zoom-in-up" data-aos-duration="1200">
     <div class="swiper-wrapper">
 
-   <div class="swiper-slide">
-  <div class="text-center flex flex-col h-full">
-    <img 
-      src="images/Service4.jpeg" 
-      alt="LIGHTSWIND UI" 
-    />
-    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
-      <p class="card-description text-gray-600 mt-2">
-         Smarter, faster, and future-ready utility solutions powered by bold ideas & technology.
-      </p>
-      <button class="explore-button mt-4">
-         Explore Innovation <i class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
-</div>
+      <!-- Card 1 -->
+      <div class="swiper-slide" data-aos="flip-left" data-aos-duration="1000">
+        <div class="text-center flex flex-col h-full">
+          <img src="images/Service4.jpeg" alt="Innovation Service" class="rounded-t-2xl" />
+          <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+            <p class="card-description text-gray-600 mt-2">
+              Smarter, faster, and future-ready utility solutions powered by bold ideas & technology.
+            </p>
+            <button class="explore-button mt-4 bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+              Explore Innovation <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-    <div class="swiper-slide">
-  <div class="text-center flex flex-col h-full">
-    <img 
-      src="images/Service1.jpeg" 
-      alt="LIGHTSWIND UI" 
-    />
-    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
-      <p class="card-description text-gray-600 mt-2">
-            Every decision balances growth with environmental care — from clean energy to water-saving systems.
-      </p>
-      <button class="explore-button mt-4">
-         Discover Sustainability <i class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
-</div>
+      <!-- Card 2 -->
+      <div class="swiper-slide" data-aos="flip-right" data-aos-duration="1000">
+        <div class="text-center flex flex-col h-full">
+          <img src="images/Service1.jpeg" alt="Sustainability Service" class="rounded-t-2xl" />
+          <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+            <p class="card-description text-gray-600 mt-2">
+              Every decision balances growth with environmental care — from clean energy to water-saving systems.
+            </p>
+            <button class="explore-button mt-4 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">
+              Discover Sustainability <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-<div class="swiper-slide">
-  <div class="text-center flex flex-col h-full">
-    <img 
-      src="images/Service2.jpeg" 
-      alt="LIGHTSWIND UI" 
-    />
-    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
-      <p class="card-description text-gray-600 mt-2">
-        Fueling startups and ventures in the UAE’s utilities sector with capital and strategic guidance.
-      </p>
-      <button class="explore-button mt-4">
-        Partner With Us <i class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
-</div>
+      <!-- Card 3 -->
+      <div class="swiper-slide" data-aos="flip-left" data-aos-duration="1000">
+        <div class="text-center flex flex-col h-full">
+          <img src="images/Service2.jpeg" alt="Venture Capital Service" class="rounded-t-2xl" />
+          <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+            <p class="card-description text-gray-600 mt-2">
+              Fueling startups and ventures in the UAE’s utilities sector with capital and strategic guidance.
+            </p>
+            <button class="explore-button mt-4 bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">
+              Partner With Us <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-<div class="swiper-slide">
-  <div class="text-center flex flex-col h-full">
-    <img 
-      src="images/Service3.jpeg" 
-      alt="LIGHTSWIND UI" 
-    />
-    <div class="flex-1 flex flex-col justify-between px-4 pb-4">
-      <p class="card-description text-gray-600 mt-2">
-         Building renewable and next-gen energy projects to power the UAE’s Vision 2030 goals.
-      </p>
-      <button class="explore-button mt-4">
-        See Our Mission<i class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
-</div>
+      <!-- Card 4 -->
+      <div class="swiper-slide" data-aos="flip-right" data-aos-duration="1000">
+        <div class="text-center flex flex-col h-full">
+          <img src="images/Service3.jpeg" alt="Energy Service" class="rounded-t-2xl" />
+          <div class="flex-1 flex flex-col justify-between px-4 pb-4">
+            <p class="card-description text-gray-600 mt-2">
+              Building renewable and next-gen energy projects to power the UAE’s Vision 2030 goals.
+            </p>
+            <button class="explore-button mt-4 bg-yellow-600 text-white px-6 py-2 rounded-full hover:bg-yellow-700 transition">
+              See Our Mission <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
     </div>
 
+    <!-- Pagination & Arrows -->
     <div class="swiper-pagination"></div>
-
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
+</section>
+
 
 
 
@@ -640,6 +658,17 @@
 <!-- Font Awesome (for social icons) -->
 <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS Script -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    offset: 120,   // trigger point
+    duration: 1000, // animation duration
+    easing: 'ease-in-out',
+    once: true,   // run only once
+  });
+</script>
   <script>
 var swiper = new Swiper(".mySwiper", {
       effect: "coverflow",
